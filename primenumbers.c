@@ -2,15 +2,14 @@
 #include<stdlib.h>
 
 int isPrime(int num) {
-    if (num <= 1) return 0; // 0 and 1 are not prime
+    if (num <= 1) return 0; 
     
-    // Check for divisors from 2 up to num/2
     for (int j = 2; j * j <= num; j++) {
         if (num % j == 0) {
-            return 0; // It has a divisor, so it's NOT prime
+            return 0; 
         }
     }
-    return 1; // It has no divisors, so it IS prime
+    return 1;
 }
 
 int main()
