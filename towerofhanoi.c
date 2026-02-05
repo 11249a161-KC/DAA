@@ -1,31 +1,24 @@
-#include <stdio.h>
-#include<time.h>
-
-void towerOfHanoi(int n, char from_rod, char to_rod, char aux_rod) {
-
-    if (n == 1) {
-        printf("Move disk 1 from rod %c to rod %c\n", from_rod, to_rod);
-        return;
+#include<stdio.h>
+void th(int, char, char, char);
+void th(int k, char x, char y, char z)
+{
+    if(k==1)
+    {
+        printf("%c to %c\n", x,y);
     }
-
-    towerOfHanoi(n - 1, from_rod, aux_rod, to_rod);
-
-    printf("Move disk %d from rod %c to rod %c\n", n, from_rod, to_rod);
-
-    towerOfHanoi(n - 1, aux_rod, to_rod, from_rod);
+    else
+    {
+        th(k-1,x,z,y);
+        printf("%c to %c\n",x,z);
+        th(k-1,z,y,x);
+    }
 }
 
-int main() {
-    int n = 64123456;
-    clock_t start, end;
-    printf("Steps to solve Tower of Hanoi with %d disks:\n", n);
-
-    start = clock();
-    //towerOfHanoi(n, 'A', 'C', 'B');
-    end = clock();
+int main()
+{
+    int n;
+    scanf("%d",&n);
+    th(n,'A','B','C');
     
-    double cpu_time_used = ((double)(end - start)) / CLOCKS_PER_SEC;
-    
-    printf("Time taken for search: %f seconds\n", cpu_time_used);
     return 0;
 }
