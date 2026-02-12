@@ -27,4 +27,6 @@ int bruteforce(int capacity, int weights[], int values[], int n)
 int main()
 {
     int values[] = {};
+    int weights[] = {};
+    int capacity;
 }
